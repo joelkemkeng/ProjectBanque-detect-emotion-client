@@ -1,0 +1,271 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #app {
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  /* Switcher container */
+    
+  .live-analyse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .live-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+
+  /* Switcher styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #ff0066, #ff4d6d);
+    border-radius: 25px;
+    transition: 0.4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background: linear-gradient(135deg, #00f2fe, #4facfe);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .live-title {
+      font-size: 16px;
+    }
+    .switch {
+      width: 40px;
+      height: 20px;
+    }
+    .slider:before {
+      height: 14px;
+      width: 14px;
+      bottom: 3px;
+      left: 3px;
+    }
+  }
+  
+  
+
+  /* ------ version 2 ------
+  .recording-circle {
+    margin: 20px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #0f3460, #16213e);
+    box-shadow: 0 0 25px 5px #0f3460;
+    animation: pulse 2s infinite;
+  }
+  
+  .recording-circle.active {
+    animation: sound-wave 1s infinite;
+  }
+    */
+
+
+
+  .recording-circle {
+    margin: 20px auto;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #0f3460, #16213e);
+    box-shadow: 0 0 25px 5px #0f3460;
+    transform: scale(1); /* État de base */
+    transition: transform 0.1s ease-in-out; /* Lissage des pulsations */
+  }
+  
+  .recording-circle.active {
+    /* Supprimez l'animation si elle interfère */
+    /* animation: none; */
+  }
+
+
+  .highlight {
+    background-color: rgba(255, 255, 0, 0.3); /* Fond jaune semi-transparent */
+    border: 2px solid yellow; /* Bordure jaune */
+    transition: all 0.3s ease;
+  }
+
+
+
+
+
+  
+  /* Style pour le container du loader, optionnel pour centrer l'animation */
+#loader-container {
+    display: none; /* Masqué par défaut */
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-10%, 2%);
+    z-index: 9999; /* S'assurer qu'il soit au-dessus du reste */
+  }
+  
+  /* Style pour le loader (spinner) */
+  .loader {
+    border: 8px solid #f3f3f3; /* Couleur de fond de la bordure */
+    border-top: 8px solid #3498db; /* Couleur de la partie animée */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Animation de rotation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  
+  
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 0 25px 5px #0f3460;
+    }
+    50% {
+      box-shadow: 0 0 35px 15px #0f3460;
+    }
+  }
+  
+  @keyframes sound-wave {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 30px 10px #00f2fe, 0 0 50px 20px #16213e;
+    }
+    50% {
+      transform: scale(1.2);
+      box-shadow: 0 0 40px 15px #00f2fe, 0 0 70px 35px #16213e;
+    }
+  }
+  
+  .emotion-scores {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .emotion {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #0f3460;
+    border-radius: 10px;
+  }
+  
+  .controls button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  button.start {
+    background: #00f2fe;
+    color: white;
+  }
+  
+  button.start:hover {
+    background: #4facfe;
+    transform: scale(1.05);
+  }
+  
+  button.stop {
+    background: #ff0066;
+    color: white;
+  }
+  
+  button.stop:hover {
+    background: #ff4d6d;
+    transform: scale(1.05);
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Footer styles */
+/* Footer styles */
+.footer {
+    position: fixed; /* Fixe le footer en bas */
+    bottom: 0; /* Position à 0px du bas */
+    left: 0; /* S'assure qu'il commence à gauche */
+    width: 100%; /* S'étend sur toute la largeur de l'écran */
+    background: #16213e; /* Même fond que le reste */
+    color: white;
+    text-align: center; /* Centre le texte horizontalement */
+    padding: 10px 0;
+    font-size: 14px;
+    border-top: 1px solid #0f3460; /* Ligne au-dessus pour séparer */
+    z-index: 10; /* Toujours au-dessus des autres éléments */
+  }
+  
+  .footer p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+
+
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emotion Detection</title>
+  <link rel="stylesheet" href="Assets/styles/base.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Emotion Detection</h1>
+
+    <br/>
+    
+
+    <div class="recording-circle"></div>
+
+    <br/>
+
+    <div class="controls">
+        <button class="start" id="start-btn">Start Record</button>
+        <button class="stop" id="stop-btn" disabled>Stop</button>
+    </div>
+
+    <br/>
+
+    <!-- Active Live Analyse Section 
+    <div class="live-analyse">
+      <span class="live-title">Active Live Analyse</span>
+      <label class="switch">
+        <input type="checkbox" id="live-switch">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <br/> -->
+
+    <div id="loader-container">
+        <h4 style="transform: translate(-38%, 2%);">Scan Emotion En Cour...</h4>
+        <div id="loader" class="loader"></div>
+      </div>
+
+      <br/>
+
+
+    <div class="emotion-scores">
+      <div class="emotion" id="score-joie-component">
+        <span>Joie</span>
+        <span class="score" id="score-joie">0 / 5</span> 
+      </div>
+      <div class="emotion" id="score-amour-component" >
+        <span>Amour</span>
+        <span class="score" id="score-amour">0 / 5</span>
+      </div>
+      <div class="emotion" id="score-tristesse-component">
+        <span>Tristesse</span>
+        <span class="score" id="score-tristesse">0 / 5</span>
+      </div>
+      <div class="emotion" id="score-surprise-component">
+        <span>Surprise</span>
+        <span class="score" id="score-surprise">0 / 5</span>
+      </div>
+      <div class="emotion" id="score-peur-component">
+        <span>Peur</span>
+        <span class="score" id="score-peur">0 / 5</span>
+      </div>
+      <div class="emotion" id="score-colere-component">
+        <span>Colère</span>
+        <span class="score" id="score-colere">0 / 5</span>
+      </div>
+    </div>
+
+
+
+   
+  </div>
+
+
+  
+  <footer class="footer">
+    <p>&copy; 2025 @JoelKemkeng</p>
+  </footer>
+
+
+
+  <script src="Assets/js/scripts.js"></script>
+</body>
+</html>
+
+
+
